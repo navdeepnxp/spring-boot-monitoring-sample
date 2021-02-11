@@ -4,14 +4,14 @@ phases:
   install:
       runtime-versions:
         java: corretto11
-        docker: 19
-        docker-compose: 1.28
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
   build:
     commands:
       - echo Build started on `date`
+      - docker install
+      - docker-compose install
       - mvn install
       - mvn clean package
   post_build:
