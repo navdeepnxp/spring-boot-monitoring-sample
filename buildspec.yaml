@@ -15,6 +15,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - docker-compose up --no-start
 artifacts:
   files:
     - target/spring-boot-monitoring-0.0.1-SNAPSHOT.jar
