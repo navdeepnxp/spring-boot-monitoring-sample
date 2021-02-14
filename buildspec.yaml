@@ -6,7 +6,10 @@ phases:
         java: corretto11
   pre_build:
     commands:
-      - aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 613933213663.dkr.ecr.ap-southeast-2.amazonaws.com/
+      - aws --version
+      - $(aws ecr get-login-password --region $AWS_DEFAULT_REGION --no-include-email )
+      - REPOSITORY_URI=613933213663.dkr.ecr.ap-southeast-2.amazonaws.com/test
+      
   build:
     commands:
       - echo Build started on `date`
